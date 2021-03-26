@@ -12,7 +12,7 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = "11.0"
   spec.osx.deployment_target = "10.14"
   spec.tvos.deployment_target = "11.0"
-    spec.watchos.deployment_target = '4.0'
+  spec.watchos.deployment_target = '4.0'
 
   spec.source       = { :git => "https://github.com/khamitimur/AmazingWeakSequence.git", :tag => "#{spec.version}" }
 
