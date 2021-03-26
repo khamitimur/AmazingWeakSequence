@@ -2,9 +2,15 @@ import Foundation
 
 public final class AmazingWeakSequenceIterator<Element>: IteratorProtocol {
     
-    private var index = 0
+    // MARK: - Private Properties
     
+    /// Returns index of current element.
+    private var currentIndex = 0
+    
+    /// Returns elements.
     private let elements: [Element]
+    
+    // MARK: - Initializers
     
     public init(elements: [Element]) {
         self.elements = elements
@@ -13,12 +19,12 @@ public final class AmazingWeakSequenceIterator<Element>: IteratorProtocol {
     // MARK: - IteratorProtocol
     
     public func next() -> Element? {
-        defer { index += 1 }
+        defer { currentIndex += 1 }
         
-        guard index < elements.count else {
+        guard currentIndex < elements.count else {
             return nil
         }
         
-        return elements[index]
+        return elements[currentIndex]
     }
 }

@@ -17,21 +17,21 @@ final class AmazingWeakSequenceMakeIteratorTests: XCTestCase {
     // MARK: - Tests
     
     func test_amazingWeakSequence_makeIterator() {
-        let amazingWeakSequence = AmazingWeakSequence<AmazingWeakSequenceObjectMock<Int>>()
+        let element1 = AmazingWeakSequenceElementMock(value: 1)
+        let element2 = AmazingWeakSequenceElementMock(value: 2)
+        let element3 = AmazingWeakSequenceElementMock(value: 3)
+        let element4 = AmazingWeakSequenceElementMock(value: 4)
+        let element5 = AmazingWeakSequenceElementMock(value: 5)
         
-        let objectMock1 = AmazingWeakSequenceObjectMock(value: 1)
-        let objectMock2 = AmazingWeakSequenceObjectMock(value: 2)
-        let objectMock3 = AmazingWeakSequenceObjectMock(value: 3)
-        let objectMock4 = AmazingWeakSequenceObjectMock(value: 4)
-        let objectMock5 = AmazingWeakSequenceObjectMock(value: 5)
+        let amazingWeakSequence = AmazingWeakSequence<AmazingWeakSequenceElementMock<Int>>()
         
-        amazingWeakSequence.add(objectMock1)
-        amazingWeakSequence.add(objectMock2)
-        amazingWeakSequence.add(objectMock3)
-        amazingWeakSequence.add(objectMock4)
-        amazingWeakSequence.add(objectMock5)
+        amazingWeakSequence.add(element1)
+        amazingWeakSequence.add(element2)
+        amazingWeakSequence.add(element3)
+        amazingWeakSequence.add(element4)
+        amazingWeakSequence.add(element5)
         
-        amazingWeakSequence.add(AmazingWeakSequenceObjectMock(value: 10))
+        amazingWeakSequence.add(AmazingWeakSequenceElementMock(value: 10))
         
         var elementsValuesSum: Int = 0
         

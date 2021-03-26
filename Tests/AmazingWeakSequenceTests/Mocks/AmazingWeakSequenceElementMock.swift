@@ -1,5 +1,5 @@
 
-final class AmazingWeakSequenceObjectMock<T> {
+final class AmazingWeakSequenceElementMock<T> {
     
     // MARK: - Properties
     
