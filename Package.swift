@@ -1,12 +1,14 @@
-// swift-tools-version:5.3
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// swift-tools-version:5.0
 
 import PackageDescription
 
 let package = Package(
     name: "AmazingWeakSequence",
     platforms: [
-        .iOS(.v11)
+        .macOS(.v10_14),
+        .iOS(.v11),
+        .tvOS(.v11),
+        .watchOS(.v4)
     ],
     products: [
         .library(
