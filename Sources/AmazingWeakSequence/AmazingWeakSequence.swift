@@ -8,30 +8,27 @@ public final class AmazingWeakSequence<Element>: Sequence {
     /// Returns hash table for storing weak references.
     private let weakHashTable: NSHashTable<AnyObject>
     
-    /// Returns serial dispatch queue to sync read and write operations.
-    private let serialDispatchQueue: DispatchQueue
+    /// Returns semaphore.
+    private let semaphore: DispatchSemaphore
     
     // MARK: - Public Properties
     
     /// Returns the number of elements in sequence.
     public var count: Int {
-        serialDispatchQueue.sync {
-            weakHashTable.allObjects.count
-        }
+        weakHashTable.allObjects.count
     }
     
     // MARK: - Initializers
     
-    /// - Parameter dispatchQueueLabel: A string label to attach to the queue to uniquely identify it in debugging tools.
-    public init(dispatchQueueLabel: String = "default.dispatchQueueLabel.title") {
+    public init() {
         self.weakHashTable = NSHashTable<AnyObject>.weakObjects()
-        self.serialDispatchQueue = DispatchQueue(label: dispatchQueueLabel)
+        self.semaphore = DispatchSemaphore(value: 1)
     }
     
     // MARK: - Sequence
     
     public func makeIterator() -> AmazingWeakSequenceIterator<Element> {
-        serialDispatchQueue.sync {
+        semaphore.wait {
             AmazingWeakSequenceIterator(elements: weakHashTable.allObjects.compactMap { $0 as? Element })
         }
     }
@@ -40,27 +37,43 @@ public final class AmazingWeakSequence<Element>: Sequence {
     
     /// Adds element to the sequence.
     public func add(_ element: Element) {
-        serialDispatchQueue.sync {
+        semaphore.wait {
             weakHashTable.add(element as AnyObject)
         }
     }
     
     /// Removes element from the sequence.
     public func remove(_ element: Element) {
-        serialDispatchQueue.sync {
+        semaphore.wait {
             weakHashTable.remove(element as AnyObject)
         }
     }
     
     /// Removes all elements in the sequence.
     public func removeAll() {
-        serialDispatchQueue.sync {
+        semaphore.wait {
             weakHashTable.removeAllObjects()
         }
     }
     
     /// Returns a value that indicates whether the sequence contains a given element.
     public func contains(_ element: Element) -> Bool {
-        weakHashTable.contains(element as AnyObject)
+        semaphore.wait {
+            weakHashTable.contains(element as AnyObject)
+        }
+    }
+}
+
+private extension DispatchSemaphore {
+    
+    // MARK: - Methods
+    
+    /// Waits for execution block to complete and increments a semaphore.
+    func wait<T>(_ executionBlock: () -> T) -> T {
+        wait()
+        
+        defer { signal() }
+        
+        return executionBlock()
     }
 }
