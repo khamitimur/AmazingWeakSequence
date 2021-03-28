@@ -87,7 +87,7 @@ class Service {
 - Swift 5.0+
 
 ## Installation
-#### CocoaPods
+### CocoaPods
 To integrate `AmazingWeakSequence` into your Xcode project using [CocoaPods](https://cocoapods.org/), specify it in your `Podfile`:
 ```ruby
 pod 'AmazingWeakSequence', '~> 1.0.0'
@@ -103,7 +103,7 @@ dependencies: [
 ]
 ```
 
-#### Git Submodules
+### Git Submodules
 To integrate `AmazingWeakSequence` into your workspace using `git` [submodules](https://git-scm.com/docs/git-submodule), open `Terminal` in your top-level project directory and run the following command:
 ```bash
 git submodule add https://github.com/khamitimur/AmazingWeakSequence.git
@@ -118,7 +118,7 @@ You'll find new `AmazingWeakSequence` folder. Open it and drag and drop `Amazing
 
 Select your project and add `AmazingWeakSequence.framework` under `General -> Frameworks and Libraries`.
 
-#### Manually
+### Manually
 Drag and drop `AmazingWeakSequence.xcodeproj` into your project in the project navigator in `Xcode`. Or into the project navigator root if you're working with `Workspace`.
 
 Select your project and add `AmazingWeakSequence.framework` under `General -> Frameworks and Libraries`.
