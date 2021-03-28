@@ -59,6 +59,8 @@ protocol ServiceDelegate: AnyObject {
 class Service {
     let delegates = AmazingWeakSequence<ServiceDelegate>()
     
+    // ...
+    
     func addDelegate(_ delegate: ServiceDelegate) {
         delegates.add(delegate)
     }
