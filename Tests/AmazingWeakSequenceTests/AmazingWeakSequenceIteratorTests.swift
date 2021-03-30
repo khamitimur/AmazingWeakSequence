@@ -16,21 +16,24 @@ final class AmazingWeakSequenceIteratorTests: XCTestCase {
     
     // MARK: - Tests
     
-    func test_amazingWeakSequenceIterator_next() {
-        let elements = [AmazingWeakSequenceElementMock(value: 1),
-                        AmazingWeakSequenceElementMock(value: 2),
-                        AmazingWeakSequenceElementMock(value: 3),
-                        AmazingWeakSequenceElementMock(value: 4),
-                        AmazingWeakSequenceElementMock(value: 5)]
+    func test_next() {
+        // given
+        let elements = [AmazingWeakSequenceElement(value: 1),
+                        AmazingWeakSequenceElement(value: 2),
+                        AmazingWeakSequenceElement(value: 3),
+                        AmazingWeakSequenceElement(value: 4),
+                        AmazingWeakSequenceElement(value: 5)]
         
         let amazingWeakSequenceIterator = AmazingWeakSequenceIterator(elements: elements)
         
         var elementsValuesSum: Int = 0
         
+        // when
         while let element = amazingWeakSequenceIterator.next() {
             elementsValuesSum += element.value
         }
         
+        // then
         XCTAssertEqual(elementsValuesSum, 15)
     }
 }
