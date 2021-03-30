@@ -90,7 +90,7 @@ class Service {
 ### CocoaPods
 To integrate `AmazingWeakSequence` into your Xcode project using [CocoaPods](https://cocoapods.org/), specify it in your `Podfile`:
 ```ruby
-pod 'AmazingWeakSequence', '~> 1.0.0'
+pod 'AmazingWeakSequence', '~> 1.0'
 ```
 
 ### Swift Package Manager
@@ -99,7 +99,7 @@ To integrate `AmazingWeakSequence` into your Xcode project using [Swift Package 
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/khamitimur/AmazingWeakSequence.git", .upToNextMinor(from: "1.0.0"))
+    .package(url: "https://github.com/khamitimur/AmazingWeakSequence.git", .upToNextMajor(from: "1.0.0"))
 ]
 ```
 
