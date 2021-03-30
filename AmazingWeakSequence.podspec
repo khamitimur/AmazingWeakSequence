@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name        = 'AmazingWeakSequence'
-  spec.version     = '1.2.1'
+  spec.version     = '1.2.2'
   spec.summary     = 'Sequence that holds weak references to its elements.'
 
   spec.homepage    = 'https://github.com/khamitimur/AmazingWeakSequence'
