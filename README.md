@@ -103,26 +103,6 @@ dependencies: [
 ]
 ```
 
-### Git Submodules
-To integrate `AmazingWeakSequence` into your workspace using `git` [submodules](https://git-scm.com/docs/git-submodule), open `Terminal` in your top-level project directory and run the following command:
-```bash
-git submodule add https://github.com/khamitimur/AmazingWeakSequence.git
-```
-
-If your project is not initialized as a `git` repository run the following command first:
-```bash
-git init
-```
-
-You'll find new `AmazingWeakSequence` folder. Open it and drag and drop `AmazingWeakSequence.xcodeproj` into your project in the project navigator in `Xcode`. Or into the project navigator root if you're working with `Workspace`.
-
-Select your project and add `AmazingWeakSequence.framework` under `General -> Frameworks and Libraries`.
-
-### Manually
-Drag and drop `AmazingWeakSequence.xcodeproj` into your project in the project navigator in `Xcode`. Or into the project navigator root if you're working with `Workspace`.
-
-Select your project and add `AmazingWeakSequence.framework` under `General -> Frameworks and Libraries`.
-
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
