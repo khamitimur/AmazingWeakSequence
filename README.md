@@ -2,11 +2,11 @@
 
 `AmazingWeakSequence` is a sequence that holds weak references to its elements.
 
-## Problem
+## The problem
 
 In every Swift developer career comes a point when he or she needs to collect weakly referenced objects. But doing so will lead to creating strong references to this objects which is clearly defeats any purpose of having weak references in the first place.
 
-## What can you do about it?
+### What can you do about it?
 
 First and widely accepted option is to create a wrapper:
 ```swift
@@ -38,7 +38,7 @@ for weakReference in weakReferences {
 
 One problem that is obvious right away: you need to keep track of wrappers with `nil` values in them. At some point you'll need to clear up your collection or you'll risk to hold a huge number ob objects that are useless.
 
-## Is there a better way?
+### Is there a better way?
 
 Yes, there is. It's [`NSHashTable`](https://developer.apple.com/documentation/foundation/nshashtable). Take a look at convenience constructor [`weakObjects()`](https://developer.apple.com/documentation/foundation/nshashtable/1412241-weakobjects):
 ```
