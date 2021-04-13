@@ -2,7 +2,7 @@
 
 `AmazingWeakSequence` is a sequence that holds weak references to its elements.
 
-## The problem
+## Problem
 
 In every Swift developer career comes a point when he or she needs to collect weakly referenced objects. But doing so will lead to creating strong references to this objects which is clearly defeats any purpose of having weak references in the first place.
 
@@ -22,7 +22,7 @@ class WeakWrapper<T: AnyObject> {
 
 And then use it like so:
 ```swift
-var weakReferences: [SomeWeakWrapper<UIViewController>] = []
+var weakReferences: [WeakWrapper<UIViewController>] = []
 
 // ...
 
